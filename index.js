@@ -2,15 +2,15 @@ const os = require('os')
 
 const { totalmem, freemem, hostname, type, arch, cpus} = os
 
-function converter(totalRam, usoRam){
+function converter(TotalRam, RamLivre){
     config = {
-        totalRam: `${parseFloat(((totalRam / 1024 / 1024) / 1024)).toFixed(2)} GB`,
-        usoRam: `${parseFloat(((usoRam / 1024 / 1024) / 1024)).toFixed(2)} GB`,
-        livreRam: `${parseFloat(((totalRam - usoRam) / 1024 / 1024) / 1024).toFixed(2)} GB`,
+        TotalRam: `${parseFloat(((TotalRam / 1024 / 1024) / 1024)).toFixed(2)} GB`,
+        RamLivre: `${parseFloat(((RamLivre / 1024 / 1024) / 1024)).toFixed(2)} GB`,
+        UsoRam: `${parseFloat(((TotalRam - RamLivre) / 1024 / 1024) / 1024).toFixed(2)} GB`,
         "---":'---',
-        os: type(),
-        arquitetura: arch(),
-        cpu: JSON.stringify(cpus()[0].model),
+        OS: type(),
+        Arquitetura: arch(),
+        CPU: JSON.stringify(cpus()[0].model),
     }
 }
 
